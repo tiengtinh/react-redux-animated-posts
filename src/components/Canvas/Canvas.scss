@@ -1,0 +1,21 @@
+@import './../../styles/variables';
+
+.canvas {
+  background: $main_bg_color;
+  box-shadow: -5px 6px 47px -3px rgba(0,0,0,0.75);
+  margin: 20px auto;
+  width: 565px;
+  height: 900px;
+  position: relative;
+}
+
+.toolBox {
+  position: absolute;
+  width: 535px;
+  top: 15px;
+  z-index: 1;
+}
+
+.posts {
+  margin-top: 190px;
+}

@@ -1,0 +1,32 @@
+@import 'base';
+@import 'vendor/normalize';
+@import 'variables';
+
+$background_color1: #EAF2F7;
+$background_color2: #E0EBF2;
+
+// Some best-practice CSS that's useful for most apps
+// Just remove them if they're not what you want
+html {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: repeating-linear-gradient(
+    -45deg,
+    $background_color1,
+    $background_color1 300px,
+    $background_color2 300px,
+    $background_color2 600px
+  );
+  margin: 0;
+  padding: 0;
+  height: 1025px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}

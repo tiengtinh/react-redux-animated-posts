@@ -1,0 +1,12 @@
+@import './../../styles/variables';
+
+.panel {
+  color: $title_color;
+  position: absolute;
+  top: 150px;
+  width: 100%;
+}
+
+.content {
+  padding: 20px 40px
+}

@@ -1,0 +1,26 @@
+@import './../../styles/variables';
+
+.posts {
+  position: relative;
+}
+
+.detail {
+  position: absolute;
+  width: 535px;
+  top: 0;
+  left: 0;
+}
+
+.listOverlay {
+  background: $main_bg_color;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.postContent {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
