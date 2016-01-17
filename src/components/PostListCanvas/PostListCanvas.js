@@ -90,7 +90,7 @@ export default class PostListCanvas extends React.Component {
     }
 
     return (
-      <div className={ classes.posts }>
+      <div className={ classes.canvas }>
         <VelocityComponent { ...postListAnimation }>
           { this.renderPostList() }
         </VelocityComponent>
