@@ -1,58 +1,10 @@
 import React, { PropTypes } from 'react'
-import { velocityHelpers, VelocityTransitionGroup } from 'velocity-react'
+import {TransitionMotion, spring, presets} from 'react-motion'
+import keyBy from 'lodash/keyBy'
+import map from 'lodash/map'
+import find from 'lodash/find'
 
 import PostItem from './../PostItem/PostItem'
-
-var Animations = {
-  // Register these with UI Pack so that we can use stagger later.
-  In: velocityHelpers.registerEffect({
-    calls: [
-      [{
-        transformPerspective: [ 800, 800 ],
-        transformOriginX: [ '50%', '50%' ],
-        transformOriginY: [ '100%', '100%' ],
-        marginBottom: 0,
-        opacity: 1,
-        rotateX: [0, 180]
-      }, 1, {
-        easing: 'ease-out',
-        display: 'block'
-      }]
-    ]
-  }),
-
-  Out: velocityHelpers.registerEffect({
-    calls: [
-      [{
-        transformPerspective: [ 800, 800 ],
-        transformOriginX: [ '50%', '50%' ],
-        transformOriginY: [ '0%', '0%' ],
-        marginBottom: -10,
-        opacity: 0,
-        rotateX: -70
-      }, 1, {
-        easing: 'ease-out',
-        display: 'block'
-      }]
-    ]
-  })
-}
-
-var enterAnimation = {
-  animation: Animations.In,
-  backwards: true,
-  display: 'block',
-  style: {
-    display: 'none'
-  },
-  duration: 200
-}
-
-var leaveAnimation = {
-  animation: Animations.Out,
-  backwards: true,
-  duration: 200
-}
 
 export class PostsList extends React.Component {
   static propTypes = {
@@ -64,14 +16,57 @@ export class PostsList extends React.Component {
     this.props.onItemClicked(postId)
   };
 
+  getEndValue () {
+    const { posts } = this.props
+    const styled = map(posts, post => {
+      return {
+        height: spring(146, presets.gentle),
+        opacity: spring(1, presets.gentle),
+        data: post
+      }
+    })
+    const hash = keyBy(styled, 'data.id')
+    return hash
+  }
+
+  willEnter = (postId) => {
+    return {
+      height: 0,
+      opacity: 1,
+      data: find(this.props.posts, {id: postId})
+    }
+  };
+
+  willLeave (postId, styleThatJustLeft) {
+    return {
+      height: spring(0),
+      opacity: spring(0),
+      data: styleThatJustLeft.data
+    }
+  }
+
   render () {
-    var posts = this.props.posts.map((post) =>
-      <PostItem key={ post.id } data={ post } onClick={ this.handlePostItemCLicked }/>
-    )
     return (
-      <VelocityTransitionGroup component='div' enter={enterAnimation} leave={leaveAnimation}>
-        { posts }
-      </VelocityTransitionGroup>
+      <TransitionMotion
+        styles={this.getEndValue()}
+        willLeave={ this.willLeave }
+        willEnter={ this.willEnter }
+      >
+        { configs =>
+          <div>
+            {
+              map(configs, (config, postId) => {
+                const { data, ...style } = config
+                return (
+                  <div style={ style }>
+                    <PostItem key={ postId } data={ data } onClick={ this.handlePostItemCLicked }/>
+                  </div>
+                )
+              })
+            }
+          </div>
+        }
+      </TransitionMotion>
     )
   }
 }
