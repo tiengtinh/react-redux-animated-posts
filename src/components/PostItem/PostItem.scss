@@ -1,13 +1,13 @@
 @import './../../styles/variables';
 
-$padding_top: 40px;
+$padding: 40px;
 
 .item {
   border-bottom: 1px solid $mistic;
   cursor: pointer;
   color: $smalt_blue;
   position: relative;
-  padding: $padding_top 40px;
+  padding: $padding;
 
   h2 {
     font-weight: 200;
@@ -34,7 +34,7 @@ $padding_top: 40px;
   font-weight: 200;
 	position: absolute;
 	right: 40px;
-	top: $padding_top + 2;
+	top: $padding + 2;
 }
 
 .extraInfo {
