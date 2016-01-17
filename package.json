@@ -50,7 +50,6 @@
     "redux-thunk": "^1.0.0",
     "reselect": "^2.0.2",
     "url": "^0.11.0",
-    "velocity-animate": "^1.2.3",
     "velocity-react": "^1.1.1",
     "yargs": "^3.18.0"
   },

@@ -1,8 +1,4 @@
 import React from 'react'
-
-import 'velocity-animate'
-import 'velocity-animate/velocity.ui'
-
 import ReactDOM from 'react-dom'
 import { createHistory, useBasename } from 'history'
 import { syncReduxAndRouter } from 'redux-simple-router'
