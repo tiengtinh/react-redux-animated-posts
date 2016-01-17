@@ -4,7 +4,7 @@
   padding: 30px 40px 0 40px;
   position: relative;
   width: 100%;
-  color: $title_color;
+  color: $smalt_blue;
   background: #FEFEFF;
 }
 
@@ -15,7 +15,7 @@
   select, input {
     border: none;
     box-shadow: none;
-    color: $title_color;
+    color: $smalt_blue;
     font-size: 18px;
     font-weight: 200;
 
@@ -26,7 +26,7 @@
 }
 
 .searchHolder {
-  color: $sub_text_color_2;
+  color: $loblolly;
   cursor: pointer;
 }
 
@@ -34,14 +34,14 @@
   font-size: 19px;
   padding: 6px 6px;
   background: none;
-  color: $title_color;
+  color: $smalt_blue;
   border: none;
 }
 
 .navBar {
   text-align: center;
   text-transform: uppercase;
-  border-top: 1px solid $light_color;
+  border-top: 1px solid $mistic;
 
   ul {
     display: flex;
@@ -51,7 +51,7 @@
     flex-grow: 1;
 
     a {
-      color: $sub_text_color_2;
+      color: $loblolly;
       cursor: no-drop;
       padding: 20px 15px;
       font-size: 18px;
@@ -63,7 +63,7 @@
     }
 
     a.active {
-      color: $title_color;
+      color: $smalt_blue;
     }
   }
 }

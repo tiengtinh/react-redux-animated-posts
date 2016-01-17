@@ -3,9 +3,9 @@
 $padding_top: 40px;
 
 .item {
-  border-bottom: 1px solid $light_color;
+  border-bottom: 1px solid $mistic;
   cursor: pointer;
-  color: $title_color;
+  color: $smalt_blue;
   position: relative;
   padding: $padding_top 40px;
 
@@ -29,7 +29,7 @@ $padding_top: 40px;
 }
 
 .updatedTime {
-  color: $sub_text_color_2;
+  color: $loblolly;
   font-size: 12px;
   font-weight: 200;
 	position: absolute;
@@ -38,17 +38,17 @@ $padding_top: 40px;
 }
 
 .extraInfo {
-	color: $sub_text_color;
+	color: $silver_sand;
   font-weight: 200;
 
   > span:not(:first-child) {
-    border-left: 1px solid $title_color;
+    border-left: 1px solid $smalt_blue;
     padding-left: 7px;
     margin-left: 7px;
   }
 
   strong {
-    color: $title_color;
+    color: $smalt_blue;
     font-weight: 300;
   }
 }
