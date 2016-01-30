@@ -1,6 +1,7 @@
 import React from 'react'
 import { PropTypes } from 'react'
 import { VelocityTransitionGroup, VelocityComponent } from 'velocity-react'
+import log from 'loglevel'
 
 import classes from './PostListCanvas.scss'
 
@@ -72,6 +73,8 @@ export default class PostListCanvas extends React.Component {
   };
 
   render () {
+    log.info('PostListCanvas rendering')
+
     let postListAnimation
     if (this.state.showDetail) {
       postListAnimation = {

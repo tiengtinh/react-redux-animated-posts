@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router'
+import log from 'loglevel'
 
 export default class Root extends React.Component {
   static propTypes = {
@@ -19,6 +20,7 @@ export default class Root extends React.Component {
 
   get devTools () {
     if (__DEBUG__) {
+      log.setLevel(log.levels.TRACE)
       if (__DEBUG_NEW_WINDOW__) {
         if (!window.devToolsExtension) {
           require('../redux/utils/createDevToolsWindow').default(this.props.store)
@@ -33,6 +35,7 @@ export default class Root extends React.Component {
   }
 
   render () {
+    log.info('Root rendering')
     return (
       <Provider store={this.props.store}>
         <div style={{ height: '100%' }}>

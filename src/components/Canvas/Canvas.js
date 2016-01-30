@@ -1,5 +1,6 @@
 import React from 'react'
 import { PropTypes } from 'react'
+import log from 'loglevel'
 
 import classes from './Canvas.scss'
 
@@ -26,6 +27,7 @@ export default class Canvas extends React.Component {
   };
 
   render () {
+    log.info('Canvas rendering')
     return (
       <div className={ classes.canvas + '  container' }>
         <div className={ classes.toolBox }>
